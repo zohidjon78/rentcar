@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ijaraga olish - RentCar</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #ff5e57;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e24c4c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚗 Mashina ijarasi</h1>
+  <h2>Ijaraga olinayotgan mashina: <span id="selected-car-name">---</span></h2>
+
+  <form>
+    <label>Ismingiz:</label>
+    <input type="text" name="name" required>
+
+    <label>Telefon raqamingiz:</label>
+    <input type="tel" name="phone" required>
+
+    <label>Ijara boshlanish sanasi:</label>
+    <input type="date" name="start_date" required>
+
+    <label>Ijara tugash sanasi:</label>
+    <input type="date" name="end_date" required>
+
+    <button type="submit">Ijarani tasdiqlash</button>
+  </form>
+
+  <script>
+    // URLdan 'car' parametri orqali mashina nomini olish
+    const params = new URLSearchParams(window.location.search);
+    const carName = params.get('car');
+
+    // HTML sahifada mashina nomini ko‘rsatish
+    document.getElementById('selected-car-name').textContent = carName || "Tanlanmagan";
+  </script>
+
+</body>
+</html>
